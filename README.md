@@ -1,116 +1,131 @@
-# Credit-Card-Fraud-Detection
-This project focuses on detecting fraudulent credit card transactions using machine learning. The primary goal is to build and evaluate several classification models to accurately identify fraudulent transactions from a highly imbalanced dataset.
+💳 Credit Card Fraud Detection
+
+Detect fraudulent credit card transactions using advanced machine learning techniques! This project trains and compares multiple classifiers to accurately identify fraudulent transactions in a highly imbalanced dataset.
 
 
 📖 Project Overview
-The project follows a standard data science pipeline:
 
-1.Exploratory Data Analysis (EDA): The dataset is loaded, inspected, and visualized to understand its structure, feature distributions, and the severe class imbalance between fraudulent and legitimate transactions.
+This project follows a standard data science pipeline to build an effective credit card fraud detection system:
 
-2.Data Preprocessing: Features such as Time and Amount are scaled to prevent them from dominating the model training process. The class imbalance is addressed to ensure the models can learn from the minority class (fraudulent transactions).
+Exploratory Data Analysis (EDA)
+Understand the dataset structure, distributions, and severe class imbalance.
 
-3.Model Training: Several machine learning classifiers are trained on the preprocessed data.
+Data Preprocessing
+Scale features like Time and Amount and handle class imbalance using SMOTE or robust models.
 
-4.Model Evaluation & Comparison: The performance of each model is rigorously evaluated using metrics appropriate for imbalanced datasets, such as Precision, Recall, F1-Score, and ROC-AUC. Finally, the models are compared to identify the most effective one for this task.
+Model Training
+Train multiple machine learning classifiers including Logistic Regression, Decision Trees, Random Forest, and more.
 
+Model Evaluation & Comparison
+Evaluate models with metrics suitable for imbalanced datasets:
+
+Precision, Recall, F1-Score
+
+ROC-AUC
+
+Confusion Matrix
+Compare models to identify the most effective one.
 
 📊 Dataset
-The dataset contains credit card transactions made in September 2013 by European cardholders. It presents transactions that occurred in two days, with 492 frauds out of 284,807 transactions.
 
-Key characteristics:
+Transactions made by European cardholders in September 2013.
 
-  The dataset is highly imbalanced, with the positive class (frauds) accounting for only 0.172% of all transactions.
+Total transactions: 284,807 | Frauds: 492 (0.172%).
 
-  It contains only numerical input variables which are the result of a PCA transformation. The original features are not provided due to confidentiality issues.
+Features V1–V28 are PCA components.
 
-  Features V1, V2, ... V28 are the principal components obtained with PCA.
+Original features not disclosed due to confidentiality.
 
-  The only features which have not been transformed with PCA are Time and Amount.
+Time and Amount are the only non-PCA features.
 
-  The Class feature is the response variable, where it takes a value of 1 in case of fraud and 0 otherwise.
+Target variable Class:
 
+0 → Legitimate
+
+1 → Fraud
 
 ⚙️ Project Pipeline
-The notebook Credit Card Fraud Detection.ipynb is structured as follows:
 
-1.Import Libraries: Essential Python libraries like Pandas, NumPy, Matplotlib, Seaborn, Plotly, and Scikit-learn are loaded.
+Import Libraries
+Pandas, NumPy, Matplotlib, Seaborn, Plotly, Scikit-learn
 
-2.Load Data: The credit card dataset is loaded into a Pandas DataFrame.
+Load Data
+Load dataset into a Pandas DataFrame
 
-3.Exploratory Data Analysis:
+EDA
 
-  Initial data inspection (head(), describe(), info()).
+Initial data inspection (head(), describe(), info())
 
-  Checking for missing values.
+Check for missing values
 
-  Visualizing the class distribution to highlight the imbalance.
+Visualize class imbalance
 
-  Analyzing the distributions of the Time and Amount features.
+Analyze Time and Amount distributions
 
-4.Data Preprocessing:
+Data Preprocessing
 
-  Scaling the Amount and Time columns using StandardScaler or RobustScaler.
+Scale Amount and Time
 
-  Splitting the data into training and testing sets.
+Split data into training/testing sets
 
-  Handling the class imbalance (e.g., using SMOTE or by selecting models robust to imbalance).
+Handle class imbalance with SMOTE or robust models
 
-5.Model Implementation:
+Model Implementation
+Train classifiers like:
 
-  Training various classification algorithms (such as Logistic Regression, Decision Trees, Random Forest, etc.).
+Logistic Regression
 
-6.Performance Evaluation:
+Decision Tree
 
-  Evaluating each model using metrics: Accuracy, Precision, Recall, F1-Score, and ROC-AUC.
+Random Forest
 
-  Generating confusion matrices for a detailed view of prediction results.
+Gradient Boosting / XGBoost (optional)
 
-  Plotting ROC curves.
+Performance Evaluation
 
-7.Results Comparison:
+Metrics: Accuracy, Precision, Recall, F1-Score, ROC-AUC
 
-  Creating summary tables and bar plots to compare the performance metrics and training times of all the trained models.
+Confusion Matrices & ROC curves
 
+Results Comparison
+
+Summary tables and bar plots
+
+Compare metrics and training times
 
 🤖 Models Trained
-The following classification models were trained and evaluated:
 
-  Logistic Regression
+| Model                       | Precision | Recall | F1-Score | ROC-AUC |
+| --------------------------- | --------- | ------ | -------- | ------- |
+| Logistic Regression         | ✅         | ✅      | ✅        | ✅       |
+| Decision Tree Classifier    | ✅         | ✅      | ✅        | ✅       |
+| Random Forest Classifier    | ✅         | ✅      | ✅        | ✅       |
+| Gradient Boosting / XGBoost | ✅         | ✅      | ✅        | ✅       |
 
-  Decision Tree Classifier
+⚡ Detailed metrics and visualizations are available in the notebook.
 
-  Random Forest Classifier
+🚀 How to Run
 
-  Other classifiers as implemented in the notebook...
+Clone the repository
 
-
-📈 Results Summary
-The performance of each model is systematically measured and compared. The results, including detailed metrics and training times, are presented in a summary DataFrame and visualized through plots. This comparative analysis helps in determining the most suitable model that balances predictive accuracy with computational efficiency for detecting credit card fraud.
+git clone https://github.com/Gautamgiri798/Credit-Card-Fraud-Detection.git
 
 
-🚀 How to Run this Project
-To run this project on your local machine, follow these steps:
+Navigate to the project directory
 
-1.Clone the repository:
+cd Credit-Card-Fraud-Detection
 
-  git clone https://github.com/Gautamgiri798/Credit-Card-Fraud-Detection
 
-2.Navigate to the project directory:
+Install dependencies
 
-  cd <project-directory>
+pip install -r requirements.txt
 
-3.Install the required dependencies:
-  It is recommended to use a virtual environment.
 
-  pip install -r requirements.txt
+Launch Jupyter Notebook
 
-  If a requirements.txt is not available, you can install the packages manually:
+jupyter notebook
 
-  pip install pandas numpy matplotlib seaborn plotly scikit-learn jupyter
 
-4.Launch Jupyter Notebook:
+Run the notebook
+Open Credit Card Fraud Detection.ipynb and run all cells sequentially.
 
-  jupyter notebook
-
-5.Run the notebook:
-  Open the Credit Card Fraud Detection.ipynb file and execute the cells sequentially.
